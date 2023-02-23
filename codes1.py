@@ -15,7 +15,7 @@ if(len(imgsize1)==3):
 elif(len(imgsize1)==2):
     print("Gray Image")
     
-thresh, binary)=cv2.threshold(gray_image, 100, 255, cv2.THRESH_BINARY) 
+(thresh, binary)=cv2.threshold(gray_image, 100, 255, cv2.THRESH_BINARY) 
 print(thresh)
 
 cv2.imshow("Binary",binary)
