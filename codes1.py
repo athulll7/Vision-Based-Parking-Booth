@@ -17,3 +17,7 @@ elif(len(imgsize1)==2):
     
 thresh, binary)=cv2.threshold(gray_image, 100, 255, cv2.THRESH_BINARY) 
 print(thresh)
+
+cv2.imshow("Binary",binary)
+cv2.imwrite("BW Image.png",binary)
+cv2.waitKey(1)
