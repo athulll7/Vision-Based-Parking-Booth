@@ -17,3 +17,6 @@ while True:
         
         print("Captured")
         break
+
+cam.release() 
+cv2.destroyAllWindows()
