@@ -13,10 +13,14 @@ while True:
     if(key == ord('q')): #to return asci value
         imgname=str(count)+".png"
         cv2.imwrite(imgname,img)
-        count=count+1
         
         print("Captured")
         break
+
+    
+img2= cv2.imread("2.png")
+cv2.imshow("Image",img2)
+cv2.waitKey()
 
 cam.release() 
 cv2.destroyAllWindows()
