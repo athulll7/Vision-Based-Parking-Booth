@@ -13,3 +13,6 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.keras.utils import plot_model
 from IPython.display import SVG, Image
+train_location = "/content/drive/MyDrive/Number plate/Data Set/Testing Data" 
+test_location = "/content/drive/MyDrive/Number plate/Data Set/Testing Data"
+filepath = '/content/drive/MyDrive/Number plate/CNN/VGG16/Model/numberplate_VGG16_model1.h5'
