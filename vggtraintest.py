@@ -23,8 +23,15 @@ datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
 img_size=224
 batch_size=33
 num_class=35
+
 datagen_train=ImageDataGenerator(horizontal_flip=True)
 train_generator=datagen_train.flow_from_directory(train_location,target_size=(img_size,img_size),batch_size=batch_size,class_mode='categorical',shuffle=True)
-
 datagen_test=ImageDataGenerator(horizontal_flip=True)
 validation_generator=datagen_test.flow_from_directory(test_location,target_size=(img_size,img_size),batch_size=batch_size,class_mode='categorical',shuffle=True)
+
+from tensorflow.keras.applications.vgg16 import VGG16
+from tensorflow.keras.applications.vgg16 import preprocess_input
+vgg = VGG16(input_shape=[img_size,img_size] + [3], weights='imagenet', include_top=False)
+
+vgg.summary()
+
