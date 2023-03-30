@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project2/homepage.dart';
 
 class loginpage extends StatefulWidget {
   @override
@@ -57,6 +58,7 @@ class _loginpageState extends State<loginpage> {
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>homepage()));
                     String email = _emailController.text;
                     String password = _passwordController.text;
                    
