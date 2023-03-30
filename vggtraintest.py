@@ -16,3 +16,6 @@ from IPython.display import SVG, Image
 train_location = "/content/drive/MyDrive/Number plate/Data Set/Testing Data" 
 test_location = "/content/drive/MyDrive/Number plate/Data Set/Testing Data"
 filepath = '/content/drive/MyDrive/Number plate/CNN/VGG16/Model/numberplate_VGG16_model1.h5'
+
+preprocess_input = tensorflow.keras.applications.mobilenet.preprocess_input
+datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
