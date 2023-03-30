@@ -42,3 +42,14 @@ prediction = Dense(num_class, activation='softmax')(x)
 detection = Model(inputs=vgg.input, outputs=prediction)
 detection.summary()
 
+optimum=Adam(learning_rate=0.005)
+detection.compile(optimizer=optimum,loss='categorical_crossentropy',metrics=['accuracy'])
+
+print(train_generator.class_indices)
+
+TRAIN_STEPS=train_generator.n//train_generator.batch_size
+TRAIN_STEPS
+
+VALIDATION_STEPS=validation_generator.n//validation_generator.batch_size
+VALIDATION_STEPS
+
