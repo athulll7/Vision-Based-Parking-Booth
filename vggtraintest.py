@@ -19,3 +19,12 @@ filepath = '/content/drive/MyDrive/Number plate/CNN/VGG16/Model/numberplate_VGG1
 
 preprocess_input = tensorflow.keras.applications.mobilenet.preprocess_input
 datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
+
+img_size=224
+batch_size=33
+num_class=35
+datagen_train=ImageDataGenerator(horizontal_flip=True)
+train_generator=datagen_train.flow_from_directory(train_location,target_size=(img_size,img_size),batch_size=batch_size,class_mode='categorical',shuffle=True)
+
+datagen_test=ImageDataGenerator(horizontal_flip=True)
+validation_generator=datagen_test.flow_from_directory(test_location,target_size=(img_size,img_size),batch_size=batch_size,class_mode='categorical',shuffle=True)
