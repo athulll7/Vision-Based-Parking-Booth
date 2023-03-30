@@ -61,5 +61,40 @@ reduce_lr = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_accuracy',
                               verbose=1,
                               mode='max',
                               min_lr=0.00001)
-                              
+
 callbacks_list = [checkpoint, reduce_lr]
+
+history = detection.fit(train_generator,
+                              steps_per_epoch=TRAIN_STEPS, 
+                              validation_data=validation_generator,
+                              validation_steps=VALIDATION_STEPS,
+                              epochs=5,
+                              verbose=1,
+                              callbacks=callbacks_list
+                             )
+detection.metrics_names
+
+detection.evaluate_generator(validation_generator,steps=TRAIN_STEPS)
+
+import matplotlib.pyplot as plt
+
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+
+epochs = range(1, len(acc) + 1)
+
+plt.plot(epochs, loss, 'bo', label='Training loss')
+plt.plot(epochs, val_loss, 'b', label='Validation loss')
+plt.title('Training and validation loss')
+plt.legend()
+plt.figure()
+
+plt.plot(epochs, acc, 'bo', label='Training accuracy')
+plt.plot(epochs, val_acc, 'b', label='Validation accuracy')
+plt.title('Training and validation accuracy')
+plt.legend()
+plt.figure()
+
+plt.show()
