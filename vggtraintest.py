@@ -35,3 +35,10 @@ vgg = VGG16(input_shape=[img_size,img_size] + [3], weights='imagenet', include_t
 
 vgg.summary()
 
+for layer in vgg.layers:
+  layer.trainable = False
+x = Flatten()(vgg.output)
+prediction = Dense(num_class, activation='softmax')(x)
+detection = Model(inputs=vgg.input, outputs=prediction)
+detection.summary()
+
