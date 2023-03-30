@@ -98,3 +98,9 @@ plt.legend()
 plt.figure()
 
 plt.show()
+
+epochs
+loss
+val_loss
+acc
+val_acc
