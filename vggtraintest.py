@@ -53,3 +53,13 @@ TRAIN_STEPS
 VALIDATION_STEPS=validation_generator.n//validation_generator.batch_size
 VALIDATION_STEPS
 
+checkpoint = ModelCheckpoint(filepath, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
+
+reduce_lr = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_accuracy',
+                              factor=0.5,
+                              patience=2, 
+                              verbose=1,
+                              mode='max',
+                              min_lr=0.00001)
+                              
+callbacks_list = [checkpoint, reduce_lr]
